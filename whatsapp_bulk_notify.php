@@ -7,6 +7,33 @@
  * Copyright (c) 2023, TelecomsXChange. All rights reserved.
  */
 
+/*
+
+//Add Auth to script (Terminal mode)
+// Check if the user has provided the correct username and password when execuating in terminal
+if (!isset($argv[1]) || !isset($argv[2]) || $argv[1] !== 'your_username' || $argv[2] !== 'your_password') {
+    echo 'Authentication required';
+    exit;
+}
+
+//Add BASIC Auth to script (Web Server Mode)
+// Define the username and password
+$username = 'your_username';
+$password = 'your_password';
+
+// Check if the user has provided the correct username and password
+if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER'] !== $username || $_SERVER['PHP_AUTH_PW'] !== $password) {
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Authentication required';
+    exit;
+}
+
+
+
+
+*/
+
 
 // List of recipients
 $recipients = [
