@@ -16,6 +16,7 @@
         exit;
     }
 
+
 //Add BASIC Auth to script (Web Server Mode)
     // Define the username and password
     $username = 'your_username';
@@ -27,10 +28,7 @@
         header('HTTP/1.0 401 Unauthorized');
         echo 'Authentication required';
         exit;
-}
-
-
-
+    }
 
 */
 
