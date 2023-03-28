@@ -2,7 +2,6 @@
 
 /**
  * NeuAPIX WhatsApp Multi-Recipient Message Sender
- *
  * Author: Ameed Jamous
  * Company: TelecomsXChange
  * Copyright (c) 2023, TelecomsXChange. All rights reserved.
@@ -19,7 +18,12 @@ $recipients = [
 $url = 'https://wa-api.neuapix.com/whatsapp/v3/{{channel-id}}/messages';
 
 // Message body
-$messageBody = 'Hello  Admin, Customer: Acme Inc. - Main Email: john-doe@acmeinc.com has completed sign up form successfully,  Domain Age: 7 months ago,  Fraud score: 85. Please review carefully before approving the account.';
+//$messageBody = 'Hello  Admin, Customer: Acme Inc. - Main Email: john-doe@acmeinc.com has completed sign up form successfully,  Domain Age: 7 months ago,  Fraud score: 85. Please review carefully before approving the account.';
+
+// Get the message body from the query string
+// https://yourserver.com/whatsapp_multi_recipient_sender.php?messageBody=Your%20custom%20message%20here
+
+$messageBody = isset($_GET['messageBody']) ? $_GET['messageBody'] : ''; 
 
 // Authorization header value
 $authHeader = 'Bearer {{TOKEN}}';
@@ -28,7 +32,7 @@ $authHeader = 'Bearer {{TOKEN}}';
 $sleepDuration = 1;
 
 
-// Prepare the message payload
+// Prepare the message payload using text mode "text mode" which means the user must have initiated a conversation already with your whatsapp business number.
 foreach ($recipients as $recipient) {
     $payload = [
         'messaging_product' => 'whatsapp',
